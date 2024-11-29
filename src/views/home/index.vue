@@ -13,18 +13,30 @@ import RightSide from "@/components/RightSide/right-side.vue";
     <el-row>
       <el-col :xs="24" :sm="18">
         <el-card class="mobile-top-card" style="background: gray;">
-          top
+          <el-skeleton :loading="true" animated>
+            <template #template>
+              MobileTopSkeleton
+              <!-- <MobileTopSkeleton /> -->
+            </template>
+            <template #default>
+              RightSideTop
+              <!-- <RightSideTop :configDetail="true" /> -->
+            </template>
+          </el-skeleton>
         </el-card>
+        
+        <el-row class="mobile-top-card" style="background: gray;">
+          HomeArticleList
+        </el-row>
 
         <el-card class="mobile-bottom-card" style="background: gray;">
           bottom
         </el-card>
       </el-col>
 
-      <el-row :xs="0" :sm="6">
+      <el-col :xs="0" :sm="6">
         <RightSide></RightSide>
-      </el-row>
-
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -33,50 +45,10 @@ import RightSide from "@/components/RightSide/right-side.vue";
 .mobile-top-card {
   height: 31rem;
   margin: 4px;
-
-  :deep(.info-avatar) {
-    padding: 0 2rem;
-  }
-
-  :deep(.personal-say) {
-    padding-left: 1rem;
-  }
-
-  :deep(.info-background) {
-    height: 12rem;
-    width: 100%;
-  }
-
-  :deep(.common-menu) {
-    padding: 1rem 5.5rem;
-  }
-
-  :deep(.git-ee) {
-    padding: 0 4rem;
-  }
-
-  :deep(.personal-link) {
-    padding: 1rem 6rem;
-  }
 }
 .mobile-bottom-card {
   margin: 4px;
   padding: 1rem;
-  .icon-localoffer {
-    font-weight: 900;
-  }
-  span {
-    margin-left: 0.3rem;
-  }
-  .site-info {
-    padding: 0.3rem 1rem;
-    line-height: 2;
-    font-size: 1rem;
-
-    .value {
-      font-weight: 600;
-    }
-  }
 }
 
 </style>
