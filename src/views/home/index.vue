@@ -12,11 +12,22 @@ import RightSide from "@/components/RightSide/right-side.vue";
     <!-- https://blog.csdn.net/woshisangsang/article/details/113241705 -->
     <el-row>
       <el-col :xs="24" :sm="18">
-        <el-card class="mobile-top-card">
+        <el-card class="mobile-top-card" style="height: fit-content;">
           <el-skeleton :loading="true" animated>
             <template #template>
-              MobileTopSkeleton
-              <!-- <MobileTopSkeleton /> -->
+
+              <el-skeleton-item variant="image" style="width: 100%; height: 100px;" />
+
+              <div style="display: flex; justify-content: flex-start; align-items: center; position: relative;">
+                <el-skeleton-item variant="circle" style="min-width: 18vw; height: 18vw; margin-left: 1rem; margin-top: -1.2rem; " />
+                <el-skeleton-item variant="text" style="margin-left: 0.3rem; width: 100%; height: 20px;" />
+              </div>
+
+              <div style="padding: 5px;">
+                <el-skeleton-item variant="text" style="margin-left: 0.3rem; width: 100%; height: 20px;" />
+                <el-skeleton-item variant="text" style="margin-left: 0.3rem; width: 100%; height: 20px;" />
+              </div>
+
             </template>
             <template #default>
               RightSideTop

@@ -12,6 +12,7 @@ declare module 'vue' {
     ElImage: typeof import('element-plus/es')['ElImage']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
+    ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
     Header: typeof import('./src/components/header/header.vue')['default']
     HelloWorld: typeof import('./src/components/header/HelloWorld.vue')['default']
     RightSide: typeof import('./src/components/RightSide/right-side.vue')['default']
