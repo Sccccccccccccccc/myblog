@@ -12,7 +12,7 @@ import RightSide from "@/components/RightSide/right-side.vue";
     <!-- https://blog.csdn.net/woshisangsang/article/details/113241705 -->
     <el-row>
       <el-col :xs="24" :sm="18">
-        <el-card class="mobile-top-card" style="background: gray;">
+        <el-card class="mobile-top-card">
           <el-skeleton :loading="true" animated>
             <template #template>
               MobileTopSkeleton
@@ -25,11 +25,11 @@ import RightSide from "@/components/RightSide/right-side.vue";
           </el-skeleton>
         </el-card>
         
-        <el-row class="mobile-top-card" style="background: gray;">
+        <el-card class="mobile-bottom-card">
           HomeArticleList
-        </el-row>
+        </el-card>
 
-        <el-card class="mobile-bottom-card" style="background: gray;">
+        <el-card class="mobile-bottom-card">
           bottom
         </el-card>
       </el-col>
