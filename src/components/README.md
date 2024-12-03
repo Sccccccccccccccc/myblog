@@ -2,7 +2,8 @@
 <!-- 使用 mddir命令生成目录 -->
 文件目录
 
-|-- header
-|   |-- header.vue # 头部组件
-|-- SkeletonItem
-    |-- skeleton-item.vue # 骨架屏组件
+|-- header # 头部组件
+|   |-- header.vue 
+|-- Skeleton # 各个模块的骨架屏组件
+    |-- article_Skeleon 
+    |-- rightSide_Skeleon 

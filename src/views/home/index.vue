@@ -2,7 +2,10 @@
 
 import Header from '@/components/header/header.vue';
 import RightSide from "@/components/RightSide/right-side.vue";
+import RightSideSkeleton from '@/components/Skeleon/rightSide_Skeleon/index.vue'
 
+import { ref } from 'vue'
+const loading = ref(false)
 
 </script>
 <template>
@@ -13,31 +16,23 @@ import RightSide from "@/components/RightSide/right-side.vue";
     <el-row>
       <el-col :xs="24" :sm="18">
         <el-card class="mobile-top-card" style="height: fit-content;">
-          <el-skeleton :loading="true" animated>
+          <!-- Skeleton 插槽 -->
+          <!-- #default: 真正渲染的DOM	 -->
+          <!-- #template: 渲染 skeleton 模板的内容	 -->
+          <el-skeleton :loading="loading" animated>
             <template #template>
-
-              <el-skeleton-item variant="image" style="width: 100%; height: 100px;" />
-
-              <div style="display: flex; justify-content: flex-start; align-items: center; position: relative;">
-                <el-skeleton-item variant="circle" style="min-width: 18vw; height: 18vw; margin-left: 1rem; margin-top: -1.2rem; " />
-                <el-skeleton-item variant="text" style="margin-left: 0.3rem; width: 100%; height: 20px;" />
-              </div>
-
-              <div style="padding: 5px;">
-                <el-skeleton-item variant="text" style="margin-left: 0.3rem; width: 100%; height: 20px;" />
-                <el-skeleton-item variant="text" style="margin-left: 0.3rem; width: 100%; height: 20px;" />
-              </div>
-
+              <RightSideSkeleton />
             </template>
             <template #default>
-              RightSideTop
-              <!-- <RightSideTop :configDetail="true" /> -->
+              DOM
             </template>
           </el-skeleton>
         </el-card>
-        
+
         <el-card class="mobile-bottom-card">
+
           HomeArticleList
+          
         </el-card>
 
         <el-card class="mobile-bottom-card">
@@ -57,9 +52,9 @@ import RightSide from "@/components/RightSide/right-side.vue";
   height: 31rem;
   margin: 4px;
 }
+
 .mobile-bottom-card {
   margin: 4px;
   padding: 1rem;
 }
-
 </style>

@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Article_Skeleon: typeof import('./src/components/Skeleon/article_Skeleon/index.vue')['default']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElImage: typeof import('element-plus/es')['ElImage']
@@ -16,6 +17,7 @@ declare module 'vue' {
     Header: typeof import('./src/components/header/header.vue')['default']
     HelloWorld: typeof import('./src/components/header/HelloWorld.vue')['default']
     RightSide: typeof import('./src/components/RightSide/right-side.vue')['default']
+    RightSide_Skeleon: typeof import('./src/components/Skeleon/rightSide_Skeleon/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SkeletonItem: typeof import('./src/components/SkeletonItem/skeleton-item.vue')['default']
