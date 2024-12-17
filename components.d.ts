@@ -21,5 +21,6 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SkeletonItem: typeof import('./src/components/SkeletonItem/skeleton-item.vue')['default']
+    TypeWriter: typeof import('./src/components/TypeWriter/type-writer.vue')['default']
   }
 }

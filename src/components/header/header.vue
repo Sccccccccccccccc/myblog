@@ -4,6 +4,7 @@ import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 import gsap from "gsap"; // gsap动画库 https://note.bingkele.cc/gsap/start
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { debounce } from "@/utils/tool";
+import TypeWriter from "../TypeWriter/type-writer.vue";
 
 const showScrollBottom = ref(true);
 
@@ -27,13 +28,22 @@ onMounted( () => {
   initScrollEvent();
 })
 
+const typeList = ref(["生活原本沉闷，但跑起来就会有风!", "11555"]);
+
 </script>
 
 <template>
   <div id="home">
     <el-image class="bg !w-[100%] !h-[100%]" fit="cover" src="http://img.mrzym.top/FvmVKfygxBKoJbFVXJwzjgAASL9S">
     </el-image>
-    <div class="font">HEADER</div>
+    <div class="font">
+      <div class="flex items-center !w-[100%] !h-[1.2rem] !z-[9999]">
+        <TypeWriter
+          size="1.2rem"
+          :typeList="typeList"
+        ></TypeWriter>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -130,11 +140,4 @@ onMounted( () => {
   }
 }
 
-.type-writer {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  z-index: 999;
-  transform: translate(-50%, -50%);
-}
 </style>

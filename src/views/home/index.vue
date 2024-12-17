@@ -4,8 +4,11 @@ import Header from '@/components/header/header.vue';
 import RightSide from "@/components/RightSide/right-side.vue";
 import RightSideSkeleton from '@/components/Skeleon/rightSide_Skeleon/index.vue'
 
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 const loading = ref(false)
+
+onMounted(() => {
+})
 
 </script>
 <template>
