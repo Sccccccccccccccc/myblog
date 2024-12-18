@@ -5,7 +5,7 @@ import ArticleListSkeleton from '@/components/Skeleon/article_Skeleon/index.vue'
 </script>
 
 <template>
-    <el-row>
+    <el-row style="margin: 4px;">
         <template v-if="true">
             <el-col v-for="i in 5" :key="i">
                 <el-card>

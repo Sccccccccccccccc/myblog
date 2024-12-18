@@ -1,16 +1,43 @@
 <template>
-    <div class="flex" style="width: 100%; height: 100%;">
-        <el-skeleton-item variant="image" style="width: 30%; height: 100%;" />
-        <div class="flex flex-col justify-between " style="flex: 1;">
+    <div class="article-skeleon" style="width: 100%; height: 100%;">
+        <el-skeleton-item class="img-skeleon" variant="image" />
+        <div class="flex flex-col justify-around gap-5 " style="flex: 1;">
             <div class="flex flex-col gap-2">
                 <el-skeleton-item variant="text" style="margin-left: 0.3rem; width: 50%; height: 20px;" />
                 <el-skeleton-item variant="text" style="margin-left: 0.3rem; width: 30%; height: 20px;" />
             </div>
-            <div class="flex flex-col gap-3">
-                <el-skeleton-item variant="text" style="margin-left: 0.3rem; width: 80%; height: 25px;" />
-                <el-skeleton-item variant="text" style="margin-left: 0.3rem; width: 40%; height: 25px;" />
-                <el-skeleton-item variant="text" style="margin-left: 0.3rem; width: 65%; height: 30px;" />
+            <div class="flex flex-col gap-3 md:w-4/5 w-full">
+                <el-skeleton-item variant="text" style="margin-left: 0.3rem; height: 60px;" />
             </div>
         </div>
     </div>
 </template>
+
+<style lang="scss" scoped>
+
+// mobile
+@media screen and (max-width: 768px){
+    .img-skeleon{
+        width: 100%;
+        height: 45%;
+    }
+    .article-skeleon {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+// pc
+@media screen and (min-width: 769px){
+    .img-skeleon{
+        width: 30%;
+        height: 100%;
+    }
+    .article-skeleon {
+        display: flex;
+    }
+
+}
+
+</style>
