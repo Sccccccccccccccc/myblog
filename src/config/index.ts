@@ -6,8 +6,8 @@ const request = new Request({
     timeout: 30000,
 
     interceptors: {
-        responseSuccessFn(res: any) {
-            return res.data;
+        requestSuccessFn(config) {
+            return config;
         },
     }
 
