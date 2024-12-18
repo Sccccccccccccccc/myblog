@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import ArticleListSkeleton from '@/components/Skeleon/article_Skeleon/index.vue'
+import pagination from '../Pagination/pagination.vue';
 
 </script>
 
@@ -24,6 +25,7 @@ import ArticleListSkeleton from '@/components/Skeleon/article_Skeleon/index.vue'
                 11555
             </div>
         </template>
+        <pagination />
     </el-row>
 </template>
 
