@@ -3,6 +3,16 @@
 
 @use "./variable.scss"; //引入全局自定义样式
 
+.mobile-top-card {
+    height: 31rem;
+    margin: 4px;
+  }
+
+  .mobile-bottom-card {
+    margin: 4px;
+    padding: 1rem;
+  }
+  
 
 // 滚动条宽度
 ::-webkit-scrollbar {

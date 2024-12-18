@@ -24,7 +24,7 @@ const initScrollEvent = () => {
 };
 
 onMounted( () => {
-  console.log("onMounted called");
+  // console.log("onMounted called");
   initScrollEvent();
 })
 

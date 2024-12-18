@@ -16,6 +16,7 @@ declare module 'vue' {
     ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
     Header: typeof import('./src/components/header/header.vue')['default']
     HelloWorld: typeof import('./src/components/header/HelloWorld.vue')['default']
+    HomeArticleList: typeof import('./src/components/HomeArticleList/home-article-list.vue')['default']
     RightSide: typeof import('./src/components/RightSide/right-side.vue')['default']
     RightSide_Skeleon: typeof import('./src/components/Skeleon/rightSide_Skeleon/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
