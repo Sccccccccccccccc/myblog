@@ -9,8 +9,13 @@ const request = new Request({
         requestSuccessFn(config) {
             return config;
         },
+        responseSuccessFn(res){
+            return Promise.resolve(res);
+        }
     }
 
 });
 
 export default request;
+
+export * from './server/modules'
