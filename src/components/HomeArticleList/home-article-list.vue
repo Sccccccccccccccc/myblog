@@ -3,6 +3,15 @@
 import ArticleListSkeleton from '@/components/Skeleon/article_Skeleon/index.vue'
 import pagination from '../Pagination/pagination.vue';
 
+import { useHomeStore } from '@/store/home';
+const store = useHomeStore()  
+const { articleList,getArticleList } = store
+console.log("getArticleList", articleList);
+
+Promise.all([getArticleList()]).finally( () => {
+    console.log("getArticleList", articleList);
+})
+
 </script>
 
 <template>

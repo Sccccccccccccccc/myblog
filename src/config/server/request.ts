@@ -48,20 +48,20 @@ class Request {
     }
 
     return new Promise<T>((resolve, reject) => {
-        this.instance
-            .request<any,T>(config)
-            .then((res) => {
-                if (config.interceptors?.responseSuccessFn) {
-                    res = config.interceptors.responseSuccessFn(res)
-                }
-                resolve(res)
-            })
-            .catch((err) => {
-                if (config.interceptors?.responseFailureFn) {
-                    config.interceptors.responseFailureFn(err)
-                }
-                reject(err)
-            })
+      this.instance
+        .request<any,T>(config)
+        .then((res) => {
+          if (config.interceptors?.responseSuccessFn) {
+            res = config.interceptors.responseSuccessFn(res)
+          }
+          resolve(res)
+        })
+        .catch((err) => {
+          if (config.interceptors?.responseFailureFn) {
+            config.interceptors.responseFailureFn(err)
+          }
+          reject(err)
+        })
     })
   }
 

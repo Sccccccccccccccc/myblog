@@ -1,8 +1,8 @@
 import request from "../../../index";
 
-export const getArticleList = function (params:any) {
+export const getArticleList = function (params?:any) {
     return request.get({
-        url: 'http://localhost:3000/list',
+        url: '/list',
         params
     })
   }

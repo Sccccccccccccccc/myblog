@@ -3,41 +3,36 @@
 import Header from '@/components/header/header.vue';
 import RightSide from "@/components/RightSide/right-side.vue";
 import RightSideSkeleton from '@/components/Skeleon/rightSide_Skeleon/index.vue'
-
 import homeArticleList from '@/components/HomeArticleList/home-article-list.vue';
-
 import { onMounted, ref } from 'vue'
 const loading = ref(false)
 
-const fn1 = async () => {
-  console.log("----- fn1");
-}
-
-async function fn2() {
-  console.log("---- fn2_1?");
-  await fn1().then(() => {
-    console.log("------- fn1.then");
-  })
-  console.log("-------- fn2");
-}
-
-new Promise((resolve) => {
-  console.log("- Promise");
-  resolve(1)
-}).then(() => {
-  console.log("------ Promise.then");
-})
-
-console.log("-- script");
-onMounted(() => {
-  console.log("--- onMounted");
-  setTimeout(() => {
-    console.log("setTimeout");
-  })
-  fn2().then(() => {
-    console.log("--------- fn2.then");
-  })
-})
+// const fn1 = async () => {
+//   console.log("----- fn1");
+// }
+// async function fn2() {
+//   console.log("---- fn2_1?");
+//   await fn1().then(() => {
+//     console.log("------- fn1.then");
+//   })
+//   console.log("-------- fn2");
+// }
+// new Promise((resolve) => {
+//   console.log("- Promise");
+//   resolve(1)
+// }).then(() => {
+//   console.log("------ Promise.then");
+// })
+// console.log("-- script");
+// onMounted(() => {
+//   console.log("--- onMounted");
+//   setTimeout(() => {
+//     console.log("setTimeout");
+//   })
+//   fn2().then(() => {
+//     console.log("--------- fn2.then");
+//   })
+// })
 
 </script>
 <template>
