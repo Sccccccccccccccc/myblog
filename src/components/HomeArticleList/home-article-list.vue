@@ -30,20 +30,18 @@ const param = reactive({
 </script>
 
 <template>
-    <el-row style="margin: 4px;">
-        <el-col v-for="i in 5" :key="i">
-            <el-card>
-                <div class="article-box">
-                    <el-skeleton :loading="loading" style="height: 100%" animated>
-                        <template #template>
-                            <ArticleListSkeleton />
-                        </template>
-                        <template #default>
-                            <ArticleItem />
-                        </template>
-                    </el-skeleton>
-                </div>
-            </el-card>
+    <el-row style="margin: 4px; gap: 10px;">
+        <el-col v-for=" (item, index) in articleList.list" :key="index">
+            <div class="article-box">
+                <el-skeleton :loading="loading" style="height: 100%" animated>
+                    <template #template>
+                        <ArticleListSkeleton />
+                    </template>
+                    <template #default>
+                        <ArticleItem :article-data="item" />
+                    </template>
+                </el-skeleton>
+            </div>
         </el-col>
         <Pagination 
             :current="param.current"
@@ -63,20 +61,8 @@ const param = reactive({
         flex-direction: column !important;
         align-items: center;
         height: 20rem;
-    }
-
-    .article-cover {
-        width: 100%;
-        height: 14rem;
-        overflow: hidden;
-    }
-
-    .article-info {
-        flex: 1;
-        width: 100%;
-        padding: 1rem 1.5rem;
-        overflow: hidden;
-        display: inline-block;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
     }
 }
 
@@ -86,19 +72,7 @@ const param = reactive({
         display: flex;
         align-items: center;
         height: 12rem;
-    }
-
-    .article-cover {
-        width: 40%;
-        height: 100%;
-        overflow: hidden;
-    }
-
-    .article-info {
-        width: 55%;
-        padding: 0 20px;
-        overflow: hidden;
-        display: inline-block;
+        border-radius: 4px;
     }
 }
 </style>
