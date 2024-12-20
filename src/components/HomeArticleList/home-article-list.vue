@@ -61,7 +61,7 @@ const param = reactive({
         flex-direction: column !important;
         align-items: center;
         height: 20rem;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
         border-radius: 4px;
     }
 }
@@ -72,6 +72,7 @@ const param = reactive({
         display: flex;
         align-items: center;
         height: 12rem;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
         border-radius: 4px;
     }
 }
