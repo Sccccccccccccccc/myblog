@@ -1,40 +1,57 @@
 <script setup lang="ts">
-
+import { computed, reactive } from 'vue';
 import ArticleListSkeleton from '@/components/Skeleon/article_Skeleon/index.vue'
-import pagination from '../Pagination/pagination.vue';
+import ArticleItem from './components/article-item.vue';
+import Pagination from '../Pagination/pagination.vue';
 
 import { useHomeStore } from '@/store/home';
-const store = useHomeStore()  
-const { articleList,getArticleList } = store
-console.log("getArticleList", articleList);
+const store = useHomeStore();
+const { articleList, setLoading } = store;
 
-Promise.all([getArticleList()]).finally( () => {
-    console.log("getArticleList", articleList);
+const loading = computed(() => store.loading);
+setTimeout(() => {
+    setLoading(false);
+    console.log("articleList", articleList);
+}, 2000);
+
+const emit = defineEmits(["pageChange"]);
+const pagination = (page: any) => {
+    console.log("pagination");
+    emit("pageChange", page);
+};
+
+const param = reactive({
+    current: 1,
+    page: 1,
+    pageSizes: [5, 10, 20, 30],
+    size: 5,
 })
 
 </script>
 
 <template>
     <el-row style="margin: 4px;">
-        <template v-if="true">
-            <el-col v-for="i in 5" :key="i">
-                <el-card>
-                    <div class="article-box">
-                        <el-skeleton :loading="true" style="height: 100%" animated>
-                            <template #template>
-                                <ArticleListSkeleton />
-                            </template>
-                        </el-skeleton>
-                    </div>
-                </el-card>
-            </el-col>
-        </template>
-        <template v-else>
-            <div>
-                11555
-            </div>
-        </template>
-        <pagination />
+        <el-col v-for="i in 5" :key="i">
+            <el-card>
+                <div class="article-box">
+                    <el-skeleton :loading="loading" style="height: 100%" animated>
+                        <template #template>
+                            <ArticleListSkeleton />
+                        </template>
+                        <template #default>
+                            <ArticleItem />
+                        </template>
+                    </el-skeleton>
+                </div>
+            </el-card>
+        </el-col>
+        <Pagination 
+            :current="param.current"
+            :size="param.size"
+            :page-sizes="param.pageSizes"
+            :total="articleList.total"
+            @pagination="pagination" 
+        />
     </el-row>
 </template>
 

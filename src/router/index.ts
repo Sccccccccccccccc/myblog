@@ -1,9 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 
 import HomeView from '@/views/home/index.vue'
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHashHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',
@@ -12,7 +12,12 @@ const router = createRouter({
         {
             path: '/home',
             name: 'home',
-            component: HomeView
+            component: HomeView,
+            meta: {
+                title: '首页',
+                keepAlive: true, // 需要缓存
+                request: true, // 需要请求
+            }
         }
     ]
 

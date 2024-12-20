@@ -2,21 +2,23 @@ import { defineStore } from "pinia";
 import { session, local } from '@/utils/storage'
 import { getArticleList } from '@/config'
 
-interface IArticle {
-    id: number,
-    title: string,
-    content: string
+interface IArticleList {
+    total: number,
+    list: object[]
 }
 
 export interface IHome {
     loading: boolean,
-    articleList: Array<IArticle>
+    articleList: IArticleList
 }
 
 export const useHomeStore = defineStore('home', {
     state: (): IHome => ({
         loading: true,
-        articleList: []
+        articleList: {
+          list: [],
+          total: 0
+        }
     }),
     getters: {},
     actions: {
@@ -27,8 +29,9 @@ export const useHomeStore = defineStore('home', {
       async getArticleList(){
         // 调用接口
         const res = await getArticleList()
-        console.log("getArticleList???", res);
-        this.articleList = res
+        console.log("res.data", res.data);
+        
+        this.articleList = res.data
       }
 
     }

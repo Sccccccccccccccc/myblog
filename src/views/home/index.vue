@@ -4,7 +4,7 @@ import Header from '@/components/header/header.vue';
 import RightSide from "@/components/RightSide/right-side.vue";
 import RightSideSkeleton from '@/components/Skeleon/rightSide_Skeleon/index.vue'
 import homeArticleList from '@/components/HomeArticleList/home-article-list.vue';
-import { onMounted, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 const loading = ref(false)
 
 // const fn1 = async () => {
