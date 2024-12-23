@@ -1,6 +1,9 @@
 <script setup lang="ts">
 
 import { reactive } from 'vue'
+import { useHomeStore } from '@/store/home';
+const store = useHomeStore();
+const { getArticleList } = store;
 
 const props = defineProps({
     total: {
@@ -50,13 +53,21 @@ const currentChange = (val: number) => {
 };
 //上一页
 const prev = (val: number) => {
-    console.log("上一页", val);
     page.current = val - 1;
+    let query = {
+        pageNum: page.current,
+        pageSize: page.size
+    }
+    getArticleList(query);
 };
 //下一页
 const next = (val: number) => {
-    console.log("下一页", val);
     page.current = val + 1;
+    let query = {
+        pageNum: page.current,
+        pageSize: page.size
+    }
+    getArticleList(query);
 };
 
 </script>

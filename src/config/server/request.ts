@@ -18,6 +18,29 @@ class Request {
 
     this.instance.interceptors.request.use(
         (config) => {
+
+          // 处理params参数, 将对象转换为url参数, 
+          // 传入params的为query参数, 传入data的为body参数
+          let method = config.method?.toUpperCase()
+          if (method === 'GET' && config.params ) {
+            let url = config.url + '?'
+            for (const propName of Object.keys(config.params)){
+              const value = config.params[propName]
+              var part = encodeURIComponent(propName) + "="
+              if( value != null && typeof value != 'undefined'){
+                if (typeof value === 'object'){
+                  for (const key of Object.keys(value)){
+                    let params = propName + '[' + key + ']'
+                    var subPart = encodeURIComponent(params) + "="
+                    url += subPart + encodeURIComponent(value[key]) + "&"
+                  }
+                }else {
+                  url += part + encodeURIComponent(value) + "&"
+                }
+              }
+            }
+          }
+
           return config
         },
         (err) => {
@@ -31,7 +54,7 @@ class Request {
     )
 
     this.instance.interceptors.response.use(
-        (config) => {
+        (config) => {            
             return config.data
         },
         (err) => {

@@ -26,14 +26,18 @@ export const useHomeStore = defineStore('home', {
         this.loading = flag
       },
 
-      async getArticleList(){
+      async getArticleList(params?:any){
         // 调用接口
-        const res = await getArticleList()
-        console.log("res.data", res);
-        if(res.data){
-          this.loading = false
-          this.articleList = res.data
+        try {
+          const res = await getArticleList(params)
+          if(res.data){
+            this.loading = false
+            this.articleList = res.data
+          }
+        } catch (error) {
+          console.log(error);
         }
+
       }
 
     }

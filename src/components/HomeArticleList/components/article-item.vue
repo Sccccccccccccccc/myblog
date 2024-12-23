@@ -11,7 +11,6 @@ const props = defineProps({
     }
 })
 const article = toRaw(props.articleData);
-console.log("article-item", article);
 
 </script>
 

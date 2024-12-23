@@ -1,21 +1,16 @@
 <script setup lang="ts">
-import { computed, reactive } from 'vue';
+import { computed, reactive, watch, nextTick, ref} from 'vue';
 import ArticleListSkeleton from '@/components/Skeleon/article_Skeleon/index.vue'
 import ArticleItem from './components/article-item.vue';
 import Pagination from '../Pagination/pagination.vue';
 
 import { useHomeStore } from '@/store/home';
 const store = useHomeStore();
-const { articleList } = store;
-
 const loading = computed(() => store.loading);
-setTimeout(() => {
-    console.log("articleList", articleList);
-}, 2000);
+const articleList = computed(() => store.articleList);
 
 const emit = defineEmits(["pageChange"]);
 const pagination = (page: any) => {
-    console.log("pagination");
     emit("pageChange", page);
 };
 
@@ -35,7 +30,7 @@ const param = reactive({
                 <div class="article-box my-2 first:mt-0">
                     <el-skeleton :loading="loading" style="height: 100%" animated>
                         <template #default>
-                            <ArticleItem :article-data="item" :index="index" />
+                            <ArticleItem :article-data="item" :key="item.id" :index="index" />
                         </template>
                     </el-skeleton>
                 </div>
