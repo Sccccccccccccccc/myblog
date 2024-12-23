@@ -29,9 +29,11 @@ export const useHomeStore = defineStore('home', {
       async getArticleList(){
         // 调用接口
         const res = await getArticleList()
-        console.log("res.data", res.data);
-        
-        this.articleList = res.data
+        console.log("res.data", res);
+        if(res.data){
+          this.loading = false
+          this.articleList = res.data
+        }
       }
 
     }

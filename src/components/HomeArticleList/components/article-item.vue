@@ -4,6 +4,10 @@ const props = defineProps({
     articleData: {
         type: Object,
         default: () => ({})
+    },
+    index: {
+        type: Number,
+        default: 0
     }
 })
 const article = toRaw(props.articleData);
@@ -12,8 +16,13 @@ console.log("article-item", article);
 </script>
 
 <template>
-    <div class="flex justify-between items-center w-full h-full relative px-8">
-        <div class="article_info">
+    <div class="flex justify-between items-center w-full h-full relative"
+        :class="{
+            'flex-row-reverse pr-8': index % 2 == 0,
+            'pl-8': index % 2 != 0
+        }"
+    >
+        <div class="article_info" :class="{ 'ml-4': index % 2 == 0}">
             <div class="title">
                 {{ article.article_title }}
             </div>
@@ -33,6 +42,7 @@ console.log("article-item", article);
 <style scoped lang="scss">
 .article_info {
     display: flex;
+    flex: 1;
     flex-direction: column;
     font-size: 0.8rem;
     .title {
@@ -40,6 +50,7 @@ console.log("article-item", article);
         font-weight: 600;
         color: #333;
         margin-bottom: 0.5rem;
+        width: fit-content;
     }
     .title:hover {
         color: #409eff;
@@ -48,6 +59,7 @@ console.log("article-item", article);
     .info {
         color: #999;
         margin-bottom: 0.5rem;
+        width: fit-content;
     }
     .info:hover {
         color: #409eff;
@@ -56,7 +68,7 @@ console.log("article-item", article);
 }
 
 .article_cover {
-    position: absolute;
+    position: relative;
     width: 40%;
     right: 0;
     height: 100%;
