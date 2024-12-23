@@ -44,11 +44,21 @@ const emit = defineEmits(["pagination"]);
 //选择每页显示数量 Change page size
 const sizeChange = (val: number) => {
     page.size = val;
+    let query = {
+        pageNum: page.current,
+        pageSize: page.size
+    }
+    getArticleList(query);
     emit("pagination", page);
 };
 //选择某一页
 const currentChange = (val: number) => {
     page.current = val;
+    let query = {
+        pageNum: page.current,
+        pageSize: page.size
+    }
+    getArticleList(query);
     emit("pagination", page);
 };
 //上一页

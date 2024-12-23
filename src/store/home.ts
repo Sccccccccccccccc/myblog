@@ -4,7 +4,7 @@ import { getArticleList } from '@/config'
 
 interface IArticleList {
     total: number,
-    list: object[]
+    list: any[]
 }
 
 export interface IHome {
