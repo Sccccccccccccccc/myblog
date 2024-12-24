@@ -12,6 +12,7 @@ router.beforeEach((to, from, next) => {
         next()
     }else {
         if( to.meta.title == '首页'){
+            next()
             Promise.all([
                 getArticleList() // 获取文章列表
                 // ...

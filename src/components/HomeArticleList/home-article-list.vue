@@ -10,7 +10,16 @@ const loading = computed(() => store.loading);
 const articleList = computed(() => store.articleList);
 
 const emit = defineEmits(["pageChange"]);
+
+const translateY = ref(0);
 const pagination = (page: any) => {
+
+    console.log("pagination");
+    translateY.value = 20;
+    setTimeout(() => {
+        translateY.value = 0;
+    }, 300)
+
     emit("pageChange", page);
 };
 
@@ -26,15 +35,17 @@ const param = reactive({
 <template>
     <el-row>
         <div v-if="!loading" class="w-full" style="margin: 4px;">
-            <el-col v-for=" (item, index) in articleList.list" :key="index">
-                <div class="article-box my-2 first:mt-0">
-                    <el-skeleton :loading="loading" style="height: 100%" animated>
-                        <template #default>
-                            <ArticleItem :article-data="item" :key="item.id" :index="index" />
-                        </template>
-                    </el-skeleton>
-                </div>
-            </el-col>
+            <div :style="{ transform:`translateY(${translateY}px)`, transition: `all ${translateY ? '0s' : '0.3s'}`}">
+                <el-col v-for=" (item, index) in articleList.list" :key="index">
+                    <div class="article-box my-2 first:mt-0">
+                        <el-skeleton :loading="loading" style="height: 100%" animated>
+                            <template #default>
+                                <ArticleItem :article-data="item" :key="item.id" :index="index" />
+                            </template>
+                        </el-skeleton>
+                    </div>
+                </el-col>
+            </div>
             <Pagination 
                 :current="param.current"
                 :size="param.size"
@@ -67,6 +78,7 @@ const param = reactive({
         height: 20rem;
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
         border-radius: 4px;
+        margin-bottom: 10px;
     }
 }
 
