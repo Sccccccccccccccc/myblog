@@ -9,6 +9,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     Article_Skeleon: typeof import('./src/components/Skeleon/article_Skeleon/index.vue')['default']
     ArticleItem: typeof import('./src/components/HomeArticleList/components/article-item.vue')['default']
+    BlogHeader: typeof import('./src/components/layout/header/blog-header.vue')['default']
+    BlogMain: typeof import('./src/components/layout/main/blog-main.vue')['default']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElImage: typeof import('element-plus/es')['ElImage']
@@ -19,6 +21,7 @@ declare module 'vue' {
     Header: typeof import('./src/components/header/header.vue')['default']
     HelloWorld: typeof import('./src/components/header/HelloWorld.vue')['default']
     HomeArticleList: typeof import('./src/components/HomeArticleList/home-article-list.vue')['default']
+    Layout: typeof import('./src/components/layout/index.vue')['default']
     Pagination: typeof import('./src/components/Pagination/pagination.vue')['default']
     RightSide: typeof import('./src/components/RightSide/right-side.vue')['default']
     RightSide_Skeleon: typeof import('./src/components/Skeleon/rightSide_Skeleon/index.vue')['default']

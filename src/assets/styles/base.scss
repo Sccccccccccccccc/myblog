@@ -64,3 +64,10 @@
   // }
 }
   
+.layout {
+  background: var(--global-gradient) !important;
+}
+
+.main_box {
+  box-sizing: border-box;
+}

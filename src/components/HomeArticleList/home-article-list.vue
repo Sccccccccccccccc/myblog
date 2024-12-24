@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, watch, nextTick, ref} from 'vue';
+import { computed, reactive, watch, nextTick, ref } from 'vue';
 import ArticleListSkeleton from '@/components/Skeleon/article_Skeleon/index.vue'
 import ArticleItem from './components/article-item.vue';
 import Pagination from '../Pagination/pagination.vue';
@@ -18,7 +18,7 @@ const pagination = (page: any) => {
     translateY.value = 20;
     setTimeout(() => {
         translateY.value = 0;
-    }, 300)
+    }, 100)
 
     emit("pageChange", page);
 };
@@ -34,9 +34,12 @@ const param = reactive({
 
 <template>
     <el-row>
-        <div v-if="!loading" class="w-full" style="margin: 4px;">
-            <div :style="{ transform:`translateY(${translateY}px)`, transition: `all ${translateY ? '0s' : '0.3s'}`}">
-                <el-col v-for=" (item, index) in articleList.list" :key="index">
+        <template v-if="!loading">
+            <div class="w-full" style="margin: 4px;">
+                <el-col v-for=" (item, index) in articleList.list" :key="index" :style="{
+                    transform: `translateY(${translateY}px)`,
+                    transition: `all ${translateY ? '0s' : '0.3s'}`
+                }">
                     <div class="article-box my-2 first:mt-0">
                         <el-skeleton :loading="loading" style="height: 100%" animated>
                             <template #default>
@@ -45,26 +48,23 @@ const param = reactive({
                         </el-skeleton>
                     </div>
                 </el-col>
+                <Pagination :current="param.current" :size="param.size" :page-sizes="param.pageSizes"
+                    :total="articleList.total" @pagination="pagination" />
             </div>
-            <Pagination 
-                :current="param.current"
-                :size="param.size"
-                :page-sizes="param.pageSizes"
-                :total="articleList.total"
-                @pagination="pagination" 
-            />
-        </div>
-        <div v-else class="w-full" style="margin: 4px;">
-            <el-col v-for="i in 5" :key="i">
-                <div class="article-box my-2 first:mt-0">
-                    <el-skeleton style="height: 100%" animated>
-                        <template #template>
-                            <ArticleListSkeleton />
-                        </template>
-                    </el-skeleton>
-                </div>
-            </el-col>
-        </div>
+        </template>
+        <template v-else>
+            <div class="w-full" style="margin: 4px;">
+                <el-col v-for="i in 5" :key="i">
+                    <div class="article-box my-2 first:mt-0">
+                        <el-skeleton style="height: 100%" animated>
+                            <template #template>
+                                <ArticleListSkeleton />
+                            </template>
+                        </el-skeleton>
+                    </div>
+                </el-col>
+            </div>
+        </template>
     </el-row>
 </template>
 
