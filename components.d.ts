@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Article_Skeleon: typeof import('./src/components/Skeleon/article_Skeleon/index.vue')['default']
     ArticleItem: typeof import('./src/components/HomeArticleList/components/article-item.vue')['default']
+    BlogFooter: typeof import('./src/components/layout/footer/blog-footer.vue')['default']
     BlogHeader: typeof import('./src/components/layout/header/blog-header.vue')['default']
     BlogMain: typeof import('./src/components/layout/main/blog-main.vue')['default']
     ElCard: typeof import('element-plus/es')['ElCard']

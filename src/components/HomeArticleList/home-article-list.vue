@@ -76,7 +76,7 @@ const param = reactive({
         flex-direction: column !important;
         align-items: center;
         height: 20rem;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
         border-radius: 4px;
         margin-bottom: 10px;
     }
@@ -88,7 +88,7 @@ const param = reactive({
         display: flex;
         align-items: center;
         height: 12rem;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
         border-radius: 4px;
     }
 

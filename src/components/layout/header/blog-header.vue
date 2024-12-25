@@ -52,19 +52,19 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 .hide-header {
     animation-name: hideHeader;
-    animation-duration: 0.8s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
 
 .fixed-header {
     animation-name: header;
-    animation-duration: 0.8s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
 
 .fixed-header {
     animation-name: header;
-    animation-duration: 0.8s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
 
