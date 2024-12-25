@@ -16,10 +16,9 @@ const article = toRaw(props.articleData);
 
 <template>
     <div class="flex justify-between items-center w-full h-full relative article_card" :class="{
-        'flex-row-reverse pr-8': index % 2 == 0,
-        'pl-8': index % 2 != 0,
+        'flex-row-reverse': index % 2 == 0,
     }">
-        <div class="article_info" :class="{ 'ml-4': index % 2 == 0 }">
+        <div class="article_info pl-4">
             <div class="title">
                 {{ article.article_title }}
             </div>
@@ -40,7 +39,6 @@ const article = toRaw(props.articleData);
 @media screen and (max-width: 768px) {
     .article_card {
         flex-direction: column-reverse;
-        padding: 0;
     }
 
     .article_cover {

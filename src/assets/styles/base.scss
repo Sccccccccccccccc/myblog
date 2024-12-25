@@ -68,6 +68,18 @@
   background: var(--global-gradient) !important;
 }
 
+// 头部
+.header_box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2001;
+  width: 100%;
+  height: 3.6rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 .main_box {
   box-sizing: border-box;
 }

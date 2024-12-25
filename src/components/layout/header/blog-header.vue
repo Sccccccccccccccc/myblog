@@ -42,19 +42,50 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div class="header" :style="{
+    <div :class="['header_box', headerState.headerClass]" :style="{
         background: headerState.scrollTop < 50 ? 'transparent' : 'var(--header-bg)',
     }">
-        header11
+        header
     </div>
 </template>
 
 <style lang="scss" scoped>
-.header {}
+.hide-header {
+    animation-name: hideHeader;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+}
 
 .fixed-header {
-  animation-name: header;
-  animation-duration: 0.8s;
-  animation-fill-mode: forwards;
+    animation-name: header;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
 }
+
+.fixed-header {
+    animation-name: header;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes header {
+  0% {
+    transform: translateY(-3.6rem);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes hideHeader {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-3.6rem);
+  }
+}
+
 </style>

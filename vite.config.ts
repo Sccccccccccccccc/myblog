@@ -15,6 +15,7 @@ export default defineConfig({
       // https://blog.csdn.net/kaixing1967/article/details/143210418
       scss: {
         additionalData: `@use "@/assets/styles/base.scss";`,
+        silenceDeprecations: ['legacy-js-api']
       },
     },
   },
