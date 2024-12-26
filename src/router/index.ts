@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 
 import HomeView from '@/views/home/index.vue'
+import ArticleView from '@/views/article/article.vue'
 import Layout from '@/components/layout/index.vue'
 
 const router = createRouter({
@@ -25,6 +26,16 @@ const router = createRouter({
                     component: HomeView,
                     meta: {
                         title: '首页',
+                        keepAlive: true, // 需要缓存
+                        request: true, // 需要请求
+                    }
+                },
+                {
+                    path: '/article',
+                    name: 'article',
+                    component: ArticleView,
+                    meta: {
+                        title: '文章详情',
                         keepAlive: true, // 需要缓存
                         request: true, // 需要请求
                     }

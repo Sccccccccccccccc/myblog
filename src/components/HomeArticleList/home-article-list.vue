@@ -5,6 +5,7 @@ import ArticleItem from './components/article-item.vue';
 import Pagination from '../Pagination/pagination.vue';
 
 import { useHomeStore } from '@/store/home';
+import router from '@/router';
 const store = useHomeStore();
 const loading = computed(() => store.loading);
 const articleList = computed(() => store.articleList);
@@ -30,27 +31,36 @@ const param = reactive({
     size: 5,
 })
 
+const toArticleDetail = (item: any) => {
+    
+    router.push({
+        path: "/article",
+        query: {
+            id: item.id,
+        }
+    })
+
+}
+
 </script>
 
 <template>
     <el-row>
         <template v-if="!loading">
-            <div class="w-full" style="margin: 4px;">
-                <el-col v-for=" (item, index) in articleList.list" :key="index" :style="{
-                    transform: `translateY(${translateY}px)`,
-                    transition: `all ${translateY ? '0s' : '0.3s'}`
-                }">
-                    <div class="article-box my-2 first:mt-0">
-                        <el-skeleton :loading="loading" style="height: 100%" animated>
-                            <template #default>
-                                <ArticleItem :article-data="item" :key="item.id" :index="index" />
-                            </template>
-                        </el-skeleton>
-                    </div>
-                </el-col>
-                <Pagination :current="param.current" :size="param.size" :page-sizes="param.pageSizes"
-                    :total="articleList.total" @pagination="pagination" />
-            </div>
+            <el-col class="px-2" v-for=" (item, index) in articleList.list" :key="index" :style="{
+                transform: `translateY(${translateY}px)`,
+                transition: `all ${translateY ? '0s' : '0.3s'}`
+            }">
+                <div class="article-box my-2 first:mt-0">
+                    <el-skeleton :loading="loading" style="height: 100%" animated>
+                        <template #default>
+                            <ArticleItem @click="toArticleDetail(item)" :article-data="item" :key="item.id" :index="index" />
+                        </template>
+                    </el-skeleton>
+                </div>
+            </el-col>
+            <Pagination :current="param.current" :size="param.size" :page-sizes="param.pageSizes"
+                :total="articleList.total" @pagination="pagination" />
         </template>
         <template v-else>
             <div class="w-full" style="margin: 4px;">

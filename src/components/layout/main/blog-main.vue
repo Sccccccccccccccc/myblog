@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-    console.log("main?");
+    import route from "@/router";
+    console.log("main?", route);
     
 </script>
 

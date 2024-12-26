@@ -6,3 +6,10 @@ export const getArticleList = function (query?:any) {
         params: query,
     })
   }
+
+export const getArticleById = function (query?:any) {        
+    return request.get({
+        url: '/article',
+        params: query,
+    })
+}

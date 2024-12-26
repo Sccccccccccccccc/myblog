@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { session, local } from '@/utils/storage'
-import { getArticleList } from '@/config'
+import { getArticleList, getArticleById } from '@/config'
 
 interface IArticleList {
     total: number,
@@ -9,7 +9,8 @@ interface IArticleList {
 
 export interface IHome {
     loading: boolean,
-    articleList: IArticleList
+    articleList: IArticleList,
+    articleDetail: any
 }
 
 export const useHomeStore = defineStore('home', {
@@ -18,7 +19,8 @@ export const useHomeStore = defineStore('home', {
         articleList: {
           list: [],
           total: 0
-        }
+        },
+        articleDetail: ''
     }),
     getters: {},
     actions: {
@@ -26,8 +28,8 @@ export const useHomeStore = defineStore('home', {
         this.loading = flag
       },
 
+      // 获取文章列表
       async getArticleList(params?:any){
-        // 调用接口
         try {
           const res = await getArticleList(params)
           if(res.data){
@@ -38,6 +40,25 @@ export const useHomeStore = defineStore('home', {
           console.log(error);
         }
 
+      },
+
+      // 获取文章详情
+      async getArticleById(id:string){
+        try {
+          const res = await getArticleById(id).then( res => {
+            console.log('获取文章详情', res);
+            this.articleDetail = res.data
+            return res
+          })
+          // if(res.data){
+          //   console.log("获取详情", res.data);
+          //   this.loading = false
+          //   return res.data
+          // }
+          
+        } catch (error) {
+          console.log(error);
+        }
       }
 
     }
