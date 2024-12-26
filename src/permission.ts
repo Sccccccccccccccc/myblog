@@ -31,10 +31,9 @@ router.beforeEach((to, from, next) => {
             //     console.log("文章详情", to.query);
             //     next()
             // })
-            console.log(typeof to.query);
+            console.log("'文章详情'",typeof to.query);
             
             getArticleById(to.query).then( (res) => {
-                console.log("文章详情", res);
                 next()
             })
         }else {

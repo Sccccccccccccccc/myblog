@@ -43,7 +43,7 @@ export const useHomeStore = defineStore('home', {
       },
 
       // 获取文章详情
-      async getArticleById(id:string){
+      async getArticleById(id:any){
         try {
           const res = await getArticleById(id).then( res => {
             console.log('获取文章详情', res);
