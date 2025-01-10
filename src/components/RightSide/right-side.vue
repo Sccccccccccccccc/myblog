@@ -25,7 +25,6 @@
 
 <style lang="scss" scoped>
 .right-side {
-    margin: 4px;
     width: 100%;
 
     .info-card {

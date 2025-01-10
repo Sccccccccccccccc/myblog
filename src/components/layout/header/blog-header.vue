@@ -2,6 +2,10 @@
 
 import { onMounted, onBeforeUnmount, computed, reactive, } from 'vue';
 import { debounce } from "@/utils/tool";
+
+import ThemeToggle from "./widgets/theme-toggle/toggle.vue";
+import Search from "./widgets/global-search/search.vue";
+
 const headerState = reactive({
     drawerShow: false,
     startScrollTop: 0,
@@ -42,22 +46,32 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div :class="['header_box', headerState.headerClass]" :style="{
-        background: headerState.scrollTop < 50 ? 'transparent' : 'var(--header-bg)',
-    }">
-        header
+    <div 
+        :class="['header_box', headerState.headerClass]" 
+        :style="{
+            background: headerState.scrollTop < 50 ? 'transparent' : 'var(--header-bg)',
+        }"
+    >
+        <div class="pc_header">
+
+            <div class="menu-left">
+                avatar
+            </div>
+            <div class="menu-right">
+                <Search></Search>
+                <ThemeToggle></ThemeToggle>
+            </div>
+
+        </div>
+        <div class="mobile_header">
+
+        </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .hide-header {
     animation-name: hideHeader;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-}
-
-.fixed-header {
-    animation-name: header;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }

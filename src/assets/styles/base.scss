@@ -46,6 +46,9 @@
       margin: 0 auto;
       min-height: calc(100vh - 128px);
     }
+    .pc_header{
+      display: none;
+    }
 }
   
 // pc
@@ -59,13 +62,21 @@
   .mobile-top-card {
       display: none;
   }
+  .pc_header{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    justify-content: space-between;
+    .menu-right{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
   // .mobile-bottom-card {
   //     display: none;
   // }
-}
-  
-.layout {
-  background: var(--global-gradient) !important;
 }
 
 // 头部
@@ -79,6 +90,11 @@
   overflow: hidden;
   box-sizing: border-box;
 }
+  
+.layout {
+  background: var(--global-gradient) !important;
+}
+
 
 .main_box {
   box-sizing: border-box;
