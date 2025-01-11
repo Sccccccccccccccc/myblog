@@ -6,6 +6,11 @@ import { useDark, useToggle } from "@vueuse/core";
 import { local } from "@/utils/storage";
 
 const isDarkTheme = useDark({
+    // 查看源码发现useDark（默认行为）
+    // 会临时插入一个style并禁用transition，之后再移除，导致过渡失效
+    // 可以通过传入useDark({disableTransition: false})
+    disableTransition: false,
+
     storageKey: "darkThemeKey",
     // 暗黑class类名
     valueDark: "dark",
