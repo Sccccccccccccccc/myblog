@@ -14,7 +14,7 @@ const isDarkTheme = useDark({
 });
 const toggle = useToggle(isDarkTheme);
 
-export const useThemeSwitchStore = defineStore("themeSwitch", {
+export const useThemeSwitchStore = defineStore("themeSwitchStore", {
     state: () => {
         return {
             theme: isDarkTheme.value,
