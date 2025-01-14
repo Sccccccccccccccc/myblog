@@ -51,13 +51,13 @@ const toArticleDetail = (item: any) => {
                 transform: `translateY(${translateY}px)`,
                 transition: `all ${translateY ? '0s' : '0.3s'}`
             }">
-                <div class="article-box my-2 first:mt-0">
+                <el-card class="article-box my-2 first:mt-0">
                     <el-skeleton :loading="loading" style="height: 100%" animated>
                         <template #default>
                             <ArticleItem @click="toArticleDetail(item)" :article-data="item" :key="item.id" :index="index" />
                         </template>
                     </el-skeleton>
-                </div>
+                </el-card>
             </el-col>
             <Pagination :current="param.current" :size="param.size" :page-sizes="param.pageSizes"
                 :total="articleList.total" @pagination="pagination" />

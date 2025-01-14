@@ -59,7 +59,7 @@ const article = toRaw(props.articleData);
         .title {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #333;
+            color: var(--font-color);
             margin-bottom: 0.5rem;
             width: fit-content;
         }
@@ -93,7 +93,7 @@ const article = toRaw(props.articleData);
         .title {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #333;
+            color: var(--font-color);
             margin-bottom: 0.5rem;
             width: fit-content;
         }
