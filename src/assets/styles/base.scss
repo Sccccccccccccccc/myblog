@@ -2,6 +2,9 @@
 // https://blog.csdn.net/kaixing1967/article/details/143210418
 
 @use "./variable.scss"; //引入全局自定义样式
+@use "./element/element.scss"; //引入element全局样式
+@use "./element/dark.scss"; //引入element-dark暗黑布局全局样式
+
 
 .mobile-top-card {
     height: 31rem;

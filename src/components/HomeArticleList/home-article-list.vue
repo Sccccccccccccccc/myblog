@@ -65,13 +65,13 @@ const toArticleDetail = (item: any) => {
         <template v-else>
             <div class="w-full" style="margin: 4px;">
                 <el-col v-for="i in 5" :key="i">
-                    <div class="article-box my-2 first:mt-0">
+                    <el-card class="article-box my-2 first:mt-0">
                         <el-skeleton style="height: 100%" animated>
                             <template #template>
                                 <ArticleListSkeleton />
                             </template>
                         </el-skeleton>
-                    </div>
+                    </el-card>
                 </el-col>
             </div>
         </template>
@@ -89,6 +89,9 @@ const toArticleDetail = (item: any) => {
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
         border-radius: 4px;
         margin-bottom: 10px;
+        :deep(.el-card__body) {
+            height: 100%;
+        }
     }
 }
 
@@ -100,6 +103,9 @@ const toArticleDetail = (item: any) => {
         height: 12rem;
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
         border-radius: 4px;
+        :deep(.el-card__body) {
+            height: 100%;
+        }
     }
 
     .article-box:hover {

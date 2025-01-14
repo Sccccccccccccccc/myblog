@@ -1,0 +1,8 @@
+html.dark {
+    .el-popper.is-light {
+        border: none !important;
+        font-weight: 600 !important;
+        color: var(--global-white) !important;
+        background: var(--global-gradient) !important;
+    }
+}
