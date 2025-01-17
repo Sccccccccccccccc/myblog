@@ -13,7 +13,7 @@ const currentTheme = ref(undefined)
 onMounted(() => {
     const theme = local.get("mainTheme");
     // 若存在缓存用缓存
-    if (theme) {
+    if (theme) {        
         const currentTh = mainTheme.value ? "dark" : "light";
         if (theme !== currentTh) {
             changeSwitch()
@@ -37,6 +37,12 @@ onMounted(() => {
 })
 
 const changeSwitch = (event?: MouseEvent) => {
+
+    if(!event) {
+        themeSwitchStore.switchMainTheme() // 切换主题
+        return
+    }
+
     const x = event.clientX;
     const y = event.clientY;
 
