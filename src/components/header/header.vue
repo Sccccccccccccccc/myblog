@@ -6,6 +6,9 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { debounce } from "@/utils/tool";
 import TypeWriter from "../TypeWriter/type-writer.vue";
 
+import { useRoute } from "vue-router";
+const route = useRoute();
+
 const showScrollBottom = ref(true);
 
 const scrollListener = debounce(() => {
@@ -19,35 +22,68 @@ const scrollListener = debounce(() => {
 
 const initScrollEvent = () => {
   console.log("initScrollEvent");
-  
+
   window.addEventListener("scroll", scrollListener);
 };
 
-onMounted( () => {
+onMounted(() => {
   // console.log("onMounted called");
   initScrollEvent();
 })
 
+const props = withDefaults(
+  defineProps<{ src?: string, title?: string}>(), {
+  src: "http://img.mrzym.top/FvmVKfygxBKoJbFVXJwzjgAASL9S",
+  title: "title",
+})
+
 const typeList = ref(["生活原本沉闷，但跑起来就会有风!", "11555"]);
+
+console.log("route", route);
 
 </script>
 
 <template>
-  <div id="home">
-    <el-image class="bg !w-[100%] !h-[100%]" fit="cover" src="http://img.mrzym.top/FvmVKfygxBKoJbFVXJwzjgAASL9S">
-    </el-image>
-    <div class="font">
-      <div class="flex items-center !w-[100%] !h-[1.2rem] !z-[9999]">
-        <TypeWriter
-          size="1.2rem"
-          :typeList="typeList"
-        ></TypeWriter>
+  <template v-if="route.name == 'article'">
+    <div class="flex items-center justify-center !w-[100vw] !h-[30vh] relative">
+      <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src=props.src>
+      </el-image>
+      <div class="title">
+        {{ props.title }}
       </div>
     </div>
-  </div>
+  </template>
+
+  <template v-else>
+    <div id="home">
+      <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src=props.src>
+      </el-image>
+      <div class="font">
+        <div class="flex items-center !w-[100%] !h-[1.2rem] !z-[9999]">
+          <TypeWriter size="1.2rem" :typeList="typeList"></TypeWriter>
+        </div>
+      </div>
+    </div>
+  </template>
+
 </template>
 
 <style lang="scss" scoped>
+
+.title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  font-size: clamp(1em, 4vmin, 20em);
+  color: var(--global-white);
+  padding: 0.5rem;
+  white-space: nowrap;
+  mix-blend-mode: overlay;
+  cursor: pointer;
+}
+
 .font {
   position: absolute;
   top: 45%;
@@ -139,5 +175,4 @@ const typeList = ref(["生活原本沉闷，但跑起来就会有风!", "11555"]
     opacity: 1;
   }
 }
-
 </style>

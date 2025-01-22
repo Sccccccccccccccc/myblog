@@ -1,42 +1,47 @@
-
 <script lang="ts" setup>
 import router from '@/router';
 import { computed, onMounted } from 'vue';
 
 import { useHomeStore } from '@/store/home';
+
+import Header from '@/components/header/header.vue';
+
 const store = useHomeStore();
 const articleDetail = computed(() => store.articleDetail[0]);
 
-onMounted( () => {
+onMounted(() => {
     console.log("article mounted", articleDetail);
 })
 
 </script>
 
 <template>
-    <div>
-        <div class="article">
-            <h1>{{ articleDetail.article_title }}</h1>
-            <div class="content" v-html="articleDetail.article_content"></div>
-        </div>
+    <Header 
+        :src="articleDetail.article_cover" 
+        :title="articleDetail.article_title"
+    ></Header>
+    <div class="home_center_box">
+        <el-row>
+            <el-col :xs="24" :sm="18">
+                <el-card class="m-[4px]">
+                    <div class="article" v-html="articleDetail.article_content"></div>
+                </el-card>
+            </el-col>
+            <el-col :xs="0" :sm="6">
+                <el-card class="m-[4px]">
+                    <div class="p-[20px]">木路</div>
+                </el-card>
+            </el-col>
+        </el-row>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .article {
-    width: 100%;
-    height: 100%;
+    min-height: calc(100vh);
     padding: 20px;
     box-sizing: border-box;
-    h1 {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-    .content {
-        font-size: 16px;
-        line-height: 1.5;
-        text-align: justify;
-    }
+    line-height: 1.8rem;
+    word-spacing: 0.1rem;
 }
 </style>

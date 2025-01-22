@@ -46,7 +46,6 @@ const loading = computed(() => store.loading);
     <!-- https://blog.csdn.net/woshisangsang/article/details/113241705 -->
     <el-row>
       <el-col :xs="24" :sm="18">
-
         <el-card class="mobile-top-card" style="height: fit-content;">
           <!-- Skeleton 插槽 -->
           <!-- #default: 真正渲染的DOM	 -->
@@ -60,9 +59,7 @@ const loading = computed(() => store.loading);
             </template>
           </el-skeleton>
         </el-card>
-
         <homeArticleList />
-
         <el-card class="mobile-top-card" style="height: fit-content;">
           <el-skeleton :loading="loading" animated>
             <template #template> 
@@ -89,7 +86,6 @@ const loading = computed(() => store.loading);
             </template>
           </el-skeleton>
         </el-card>
-
       </el-col>
 
       <el-col :xs="0" :sm="6">
