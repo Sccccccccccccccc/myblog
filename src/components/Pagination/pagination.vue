@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { reactive } from 'vue'
+import { reactive, onBeforeUnmount, onActivated } from 'vue'
 import { useHomeStore } from '@/store/home';
 const store = useHomeStore();
 const { getArticleList } = store;
@@ -79,6 +79,10 @@ const next = (val: number) => {
     }
     getArticleList(query);
 };
+
+onActivated(() => {
+    page.current = 1;
+});
 
 </script>
 
