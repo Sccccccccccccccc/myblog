@@ -38,13 +38,27 @@ const props = withDefaults(
 
 const typeList = ref(["生活原本沉闷，但跑起来就会有风!", "11555"]);
 
-console.log("route", route);
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+
+  gsap.to(".bg", {
+    scrollTrigger: {
+      trigger: "#home",
+      scrub: true,
+      start: "top top",
+      end: "bottom",
+    },
+    scale: 1.5,
+  });
+
+});
 
 </script>
 
 <template>
   <template v-if="route.name == 'article'">
-    <div class="flex items-center justify-center !w-[100vw] !h-[30vh] relative">
+    <div id="home" class="flex items-center justify-center !w-[100vw] !h-[30vh] relative">
       <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src=props.src>
       </el-image>
       <div class="title">
