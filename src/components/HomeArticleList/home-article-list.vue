@@ -63,7 +63,7 @@ const toArticleDetail = (item: any) => {
                 :total="articleList.total" @pagination="pagination" />
         </template>
         <template v-else>
-            <div class="w-full" style="margin: 4px;">
+            <div class="w-full px-2">
                 <el-col v-for="i in 5" :key="i">
                     <el-card class="article-box my-2 first:mt-0">
                         <el-skeleton style="height: 100%" animated>

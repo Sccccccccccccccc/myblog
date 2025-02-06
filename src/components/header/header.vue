@@ -5,7 +5,6 @@ import gsap from "gsap"; // gsap动画库 https://note.bingkele.cc/gsap/start
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { debounce } from "@/utils/tool";
 import TypeWriter from "../TypeWriter/type-writer.vue";
-
 import { useRoute } from "vue-router";
 const route = useRoute();
 
@@ -80,7 +79,7 @@ console.log("route", route);
   color: var(--global-white);
   padding: 0.5rem;
   white-space: nowrap;
-  mix-blend-mode: overlay;
+  mix-blend-mode: difference;
   cursor: pointer;
 }
 
