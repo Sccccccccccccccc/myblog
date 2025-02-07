@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { session, local } from '@/utils/storage'
+import avartar from "@/assets/img/faye.png"
 
 export interface IUser {
     name: string,
@@ -8,16 +9,21 @@ export interface IUser {
     token: string,
     role: string,
     nickname: string,
+    signature: string,
 }
 
 export const useUserStore = defineStore('user', {
         state: (): IUser => ({
-            name: '',
-            avatar: '',
+            name: 'zzj',
+            avatar: avartar,
             id: 0,
             token: '',
             role: '',
-            nickname: '',
+            nickname: 'Sc ccccccc',
+            signature: "I've been here all alone.",
         }),
         getters: {},
+        actions: {
+            // 获取用户信息
+        }
 })
