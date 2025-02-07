@@ -63,7 +63,9 @@ const loading = computed(() => store.loading);
         <el-card class="mobile-top-card" style="height: fit-content;">
           <el-skeleton :loading="loading" animated>
             <template #template> 
-              Skeleton
+              <div class="flex flex-col px-2">
+                Skeleton
+              </div>
             </template>
             <template #default>
               <div class="flex flex-col gap-2">
