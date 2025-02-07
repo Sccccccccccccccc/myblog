@@ -89,7 +89,7 @@ const loading = computed(() => store.loading);
       </el-col>
 
       <el-col :xs="0" :sm="6">
-        <RightSide></RightSide>
+        <RightSide :loading="loading"></RightSide>
       </el-col>
     </el-row>
   </div>

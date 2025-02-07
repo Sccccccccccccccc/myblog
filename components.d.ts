@@ -12,6 +12,8 @@ declare module 'vue' {
     BlogFooter: typeof import('./src/components/layout/footer/blog-footer.vue')['default']
     BlogHeader: typeof import('./src/components/layout/header/blog-header.vue')['default']
     BlogMain: typeof import('./src/components/layout/main/blog-main.vue')['default']
+    ElAvatar: typeof import('element-plus/es')['ElAvatar']
+    ElButton: typeof import('element-plus/es')['ElButton']
     ElCar: typeof import('element-plus/es')['ElCar']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']

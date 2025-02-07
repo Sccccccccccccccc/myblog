@@ -5,6 +5,7 @@ import { debounce } from "@/utils/tool";
 
 import ThemeToggle from "./widgets/theme-toggle/toggle.vue";
 import Search from "./widgets/global-search/search.vue";
+import avartar from "@/assets/img/faye.png"
 
 const headerState = reactive({
     drawerShow: false,
@@ -55,7 +56,7 @@ onBeforeUnmount(() => {
         <div class="pc_header">
 
             <div class="menu-left">
-                avatar
+                <el-avatar :src="avartar"> user </el-avatar>
             </div>
             <div class="menu-right">
                 <Search></Search>

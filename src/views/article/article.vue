@@ -57,6 +57,11 @@ onMounted(() => {
                 </el-card>
             </el-col>
         </el-row>
+        <el-row>
+            <el-card class="info">
+                更新时间：{{ articleDetail.article_update_time || articleDetail.create_time }}
+            </el-card>
+        </el-row>
     </div>
 </template>
 
@@ -67,6 +72,14 @@ onMounted(() => {
     box-sizing: border-box;
     line-height: 1.8rem;
     word-spacing: 0.1rem;
+}
+
+.info {
+    margin: 4px;
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    padding: 10px 20px;
 }
 
 // 对于markdown样式的调整

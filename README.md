@@ -13,5 +13,8 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 - [-] 设置请求数据格式 interface 
 - [-] 设置路由守卫 将接口数据请求放到路由守卫中
 
+2025-02-07
+- [-] 使用pinia管理登录用户信息
+
 
 
