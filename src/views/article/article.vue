@@ -25,13 +25,16 @@ const mdState = reactive({
 mdState.text = articleDetail.value.article_content;
 
 onMounted(() => {
-    console.log("article mounted", articleDetail);
+    articleDetail.value.update_time = new Date(articleDetail.value.update_time).toLocaleString()
 })
 
 </script>
 
 <template>
-    <Header :src="articleDetail.article_cover" :title="articleDetail.article_title"></Header>
+    <Header 
+        :src="articleDetail.article_cover" 
+        :title="articleDetail.article_title"
+    />
     <div class="home_center_box">
         <el-row>
             <el-col :xs="24" :sm="18">
@@ -45,9 +48,31 @@ onMounted(() => {
                         :preview-theme="'default'"
                         :theme="mainTheme ? 'dark' : 'light'"
                         :scroll-element="scrollElement"
-                    >
-                    </MdPreview>
+                    />
                 </el-card>
+
+                <el-card class="m-[4px]">
+                    <div class="info flex flex-col">
+                        <span>                    
+                            更新时间：{{ articleDetail.update_time || articleDetail.create_time }}
+                        </span>
+                        <span>                    
+                            更新时间：{{ articleDetail.update_time || articleDetail.create_time }}
+                        </span>
+                    </div>
+                </el-card>
+
+                <div class="flex justify-between items-center p-4">
+                    <div class="relative w-full">
+                        <span class="absolute left-0 top-0 text-[#999] text-[12px] z-10">上一篇</span>
+                        <el-image fit="cover" class="w-[80%] h-[6rem]" :src="articleDetail.article_cover" />
+                    </div>
+                    <div class="relative w-full">
+                        <span class="absolute left-0 top-0 text-[#999] text-[12px] z-10">下一篇</span>
+                        <el-image fit="cover" class="w-[80%] h-[6rem]" :src="articleDetail.article_cover" />
+                    </div>
+                </div>
+
             </el-col>
             <el-col :xs="0" :sm="6">
                 <el-card class="m-[4px] sticky top-[5px]">
@@ -56,11 +81,6 @@ onMounted(() => {
                     </div>
                 </el-card>
             </el-col>
-        </el-row>
-        <el-row>
-            <el-card class="info">
-                更新时间：{{ articleDetail.article_update_time || articleDetail.create_time }}
-            </el-card>
         </el-row>
     </div>
 </template>
@@ -76,7 +96,6 @@ onMounted(() => {
 
 .info {
     margin: 4px;
-    text-align: center;
     font-size: 14px;
     color: #999;
     padding: 10px 20px;
