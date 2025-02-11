@@ -28,6 +28,14 @@ onMounted(() => {
     articleDetail.value.update_time = new Date(articleDetail.value.update_time).toLocaleString()
 })
 
+function like() {
+
+    console.log("like");
+    
+    
+
+}
+
 </script>
 
 <template>
@@ -59,7 +67,8 @@ onMounted(() => {
                         </div>
 
                         <div class="text-center cursor-pointer">
-                            👍114514
+                            <span @click="like">👍</span>
+                            114514
                         </div>
 
                         <div class="recommend">

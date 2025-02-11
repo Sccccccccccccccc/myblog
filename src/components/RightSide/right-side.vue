@@ -49,6 +49,35 @@ const temp = 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.j
                     </template>
                 </el-skeleton>
             </el-card>
+
+            <el-card class="mt-2 info-card">
+                📢公告
+                <el-row>
+                    <el-col :span="24">
+                        <div class="p-[1rem] text-sm">
+                            芝士公告
+                        </div>
+                    </el-col>
+                </el-row>
+            </el-card>
+
+            <el-card class="mt-2 info-card">
+                🗒️资讯
+                <el-row>
+                    <el-col :span="24">
+                        <div class="p-[1rem] text-sm leading-6">
+
+                            文章数：null 篇
+                            <br />
+                            访问量：null 次
+                            <br />
+                            运行时间：null 天
+
+                        </div>
+                    </el-col>
+                </el-row>
+            </el-card>
+
         </el-col>
     </el-row>
 </template>
@@ -59,7 +88,8 @@ const temp = 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.j
     width: 100%;
     // margin: 4px;
     .info-card {
-        height: 29rem;
+        // height: 29rem;
+        padding: 1rem;
     }
 
     .info-card:hover {
