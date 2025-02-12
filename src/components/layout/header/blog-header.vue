@@ -47,12 +47,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div 
-        :class="['header_box', headerState.headerClass]" 
-        :style="{
-            background: headerState.scrollTop < 50 ? 'transparent' : 'var(--header-bg)',
-        }"
-    >
+    <div :class="['header_box', headerState.headerClass]" :style="{
+        background: headerState.scrollTop < 50 ? 'transparent' : 'var(--header-bg)',
+    }">
         <div class="pc_header">
 
             <div class="menu-left">
@@ -65,7 +62,13 @@ onBeforeUnmount(() => {
 
         </div>
         <div class="mobile_header">
-
+            <div class="menu-left">
+                <el-avatar :src="avartar"> user </el-avatar>
+            </div>
+            <div class="menu-right">
+                <Search></Search>
+                <ThemeToggle></ThemeToggle>
+            </div>
         </div>
     </div>
 </template>
@@ -84,23 +87,22 @@ onBeforeUnmount(() => {
 }
 
 @keyframes header {
-  0% {
-    transform: translateY(-3.6rem);
-  }
+    0% {
+        transform: translateY(-3.6rem);
+    }
 
-  100% {
-    transform: translateY(0px);
-  }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 @keyframes hideHeader {
-  0% {
-    transform: translateY(0px);
-  }
+    0% {
+        transform: translateY(0px);
+    }
 
-  100% {
-    transform: translateY(-3.6rem);
-  }
+    100% {
+        transform: translateY(-3.6rem);
+    }
 }
-
 </style>

@@ -52,6 +52,18 @@
     .pc_header{
       display: none;
     }
+    .mobile_header{
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      justify-content: space-between;
+      .menu-right{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
 }
   
 // pc
@@ -76,6 +88,9 @@
       align-items: center;
       gap: 1rem;
     }
+  }
+  .mobile_header {
+    display: none;
   }
   // .mobile-bottom-card {
   //     display: none;

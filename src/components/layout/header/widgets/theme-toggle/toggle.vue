@@ -37,7 +37,6 @@ onMounted(() => {
 })
 
 const changeSwitch = (event?: MouseEvent) => {
-
     if(!event) {
         themeSwitchStore.switchMainTheme() // 切换主题
         return
@@ -63,6 +62,7 @@ const changeSwitch = (event?: MouseEvent) => {
         }
     }
 
+    // 手机浏览器无法触发动画？
     const transition = document.startViewTransition(async () => {
         themeSwitchStore.switchMainTheme() // 切换主题
     });
