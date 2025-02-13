@@ -45,7 +45,7 @@ const loading = computed(() => store.loading);
     <!-- element 响应式分栏布局 -->
     <!-- https://blog.csdn.net/woshisangsang/article/details/113241705 -->
     <el-row>
-      <el-col :xs="24" :sm="18">
+      <el-col class="px-2" :xs="24" :sm="18">
         <el-card class="mobile-top-card" style="height: fit-content;">
           <!-- Skeleton 插槽 -->
           <!-- #default: 真正渲染的DOM	 -->
@@ -55,14 +55,16 @@ const loading = computed(() => store.loading);
               <RightSideSkeleton />
             </template>
             <template #default>
-              DOM
+              <div class="flex flex-col px-2">
+                Skeleton
+              </div>
             </template>
           </el-skeleton>
         </el-card>
         <homeArticleList />
         <el-card class="mobile-top-card" style="height: fit-content;">
           <el-skeleton :loading="loading" animated>
-            <template #template> 
+            <template #template>
               <div class="flex flex-col px-2">
                 Skeleton
               </div>

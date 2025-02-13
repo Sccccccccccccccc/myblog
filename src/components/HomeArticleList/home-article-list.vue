@@ -47,7 +47,7 @@ const toArticleDetail = (item: any) => {
 <template>
     <el-row>
         <template v-if="!loading">
-            <el-col class="px-2" v-for=" (item, index) in articleList.list" :key="index" :style="{
+            <el-col v-for=" (item, index) in articleList.list" :key="index" :style="{
                 transform: `translateY(${translateY}px)`,
                 transition: `all ${translateY ? '0s' : '0.3s'}`
             }">
@@ -63,7 +63,7 @@ const toArticleDetail = (item: any) => {
                 :total="articleList.total" @pagination="pagination" />
         </template>
         <template v-else>
-            <div class="w-full px-2">
+            <div class="w-full">
                 <el-col v-for="i in 5" :key="i">
                     <el-card class="article-box my-2 first:mt-0">
                         <el-skeleton style="height: 100%" animated>
