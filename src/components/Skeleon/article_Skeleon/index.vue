@@ -1,7 +1,7 @@
 <template>
     <div class="article-skeleon w-full h-full gap-2">
         <el-skeleton-item class="img-skeleon" variant="image" />
-        <div class="flex flex-col justify-around gap-5 " style="flex: 1;">
+        <div class="flex flex-col justify-around p-5 " style="flex: 1;">
             <div class="flex flex-col gap-2">
                 <el-skeleton-item variant="text" style="width: 50%; height: 20px;" />
                 <el-skeleton-item variant="text" style="width: 30%; height: 20px;" />
