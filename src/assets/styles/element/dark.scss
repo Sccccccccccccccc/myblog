@@ -5,4 +5,8 @@ html.dark {
         color: var(--global-white) !important;
         background: var(--global-gradient) !important;
     }
+
+    .md-preview-v3 {
+        background: rgba(48, 48, 48, 0.1);
+    }
 }

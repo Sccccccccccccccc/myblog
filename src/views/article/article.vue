@@ -135,7 +135,7 @@ function like() {
 
 // 对于markdown样式的调整
 .md-preview-v3 {
-    background: rgba(31, 31, 31, 0.3);
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .code-block::scrollbar-thumb {
