@@ -97,7 +97,7 @@ const changeAnimation = (event: MouseEvent) => {
 
 </script>
 
-<template>{{ isMobile }}
+<template>
     <el-switch v-model="currentTheme" size="default" :active-icon="Sunrise" inline-prompt :inactive-icon="Moon"
         @click.stop="changeSwitch" />
 </template>
