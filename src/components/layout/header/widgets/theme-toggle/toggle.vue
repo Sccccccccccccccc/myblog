@@ -13,7 +13,7 @@ const currentTheme = ref(undefined)
 onMounted(() => {
     const theme = local.get("mainTheme");
     // 若存在缓存用缓存
-    if (theme) {        
+    if (theme) {
         const currentTh = mainTheme.value ? "dark" : "light";
         if (theme !== currentTh) {
             changeSwitch()
@@ -37,11 +37,15 @@ onMounted(() => {
 })
 
 const changeSwitch = (event?: MouseEvent) => {
-    if(!event) {
-        themeSwitchStore.switchMainTheme() // 切换主题
+        // 判断是否是移动端
+    if (window.innerWidth <= 768) {
+        themeSwitchStore.switchMainTheme()
         return
     }
+    changeAnimation(event);
+};
 
+const changeAnimation = (event: MouseEvent) => {
     const x = event.clientX;
     const y = event.clientY;
 
@@ -50,9 +54,9 @@ const changeSwitch = (event?: MouseEvent) => {
         Math.max(y, innerHeight - y),
     );
 
-    const isAppearanceTransition = 
-    document.startViewTransition &&
-    !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isAppearanceTransition =
+        document.startViewTransition &&
+        !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!isAppearanceTransition || !event) {
         async () => {
@@ -69,37 +73,31 @@ const changeSwitch = (event?: MouseEvent) => {
 
     transition.ready.then(() => {
         const clipPath = [
-        `circle(0px at ${x}px ${y}px)`,
-        `circle(${endRadius}px at ${x}px ${y}px)`,
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
         ];
         // 这是一个动画效果的实现，
         // 通过改变`clipPath`属性的值来实现动画效果。
         // `document.documentElement`表示整个HTML文档的根元素。
         document.documentElement.animate(
-        {
-            clipPath: currentTheme.value ? [...clipPath].reverse() : clipPath,
-        },
-        {
-            duration: 400,
-            easing: 'ease-in',
-            pseudoElement: currentTheme.value
-            ? '::view-transition-old(root)'
-            : '::view-transition-new(root)',
-        },
+            {
+                clipPath: currentTheme.value ? [...clipPath].reverse() : clipPath,
+            },
+            {
+                duration: 400,
+                easing: 'ease-in',
+                pseudoElement: currentTheme.value
+                    ? '::view-transition-old(root)'
+                    : '::view-transition-new(root)',
+            },
         );
     });
 
-};
+}
 
 </script>
 
-<template>
-    <el-switch 
-        v-model="currentTheme" 
-        size="default" 
-        :active-icon="Sunrise" 
-        inline-prompt 
-        :inactive-icon="Moon"
-        @click.stop="changeSwitch" 
-    />
+<template>{{ isMobile }}
+    <el-switch v-model="currentTheme" size="default" :active-icon="Sunrise" inline-prompt :inactive-icon="Moon"
+        @click.stop="changeSwitch" />
 </template>
