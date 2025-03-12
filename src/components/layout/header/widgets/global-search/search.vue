@@ -12,7 +12,7 @@ const { mainTheme } = storeToRefs(themeSwitchStore);
 
 <template>
     <div class="search">
-        {{ mainTheme }}
+        🔎
     </div>
 </template>
 

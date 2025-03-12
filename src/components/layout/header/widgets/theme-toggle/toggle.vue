@@ -37,7 +37,7 @@ onMounted(() => {
 })
 
 const changeSwitch = (event?: MouseEvent) => {
-        // 判断是否是移动端
+    // 判断是否是移动端
     if (window.innerWidth <= 768) {
         themeSwitchStore.switchMainTheme()
         return
@@ -46,6 +46,9 @@ const changeSwitch = (event?: MouseEvent) => {
 };
 
 const changeAnimation = (event: MouseEvent) => {
+    console.log('changeAnimation', event);
+
+    if(!event) return
     const x = event.clientX;
     const y = event.clientY;
 

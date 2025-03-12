@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+  import bot from '@/components/AIBot/bot.vue'
 </script>
 
 <template>
@@ -9,6 +9,8 @@
         <component :is="Component" />
       </transition>
     </router-view>
+
+    <bot />
   </div>
 </template>
 
