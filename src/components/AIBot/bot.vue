@@ -77,7 +77,6 @@ const showBotChat = () => {
     right: 2rem;
     width: 3.5rem;
     height: 3.5rem;
-    background-color: #4a6bff;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -138,14 +137,14 @@ const showBotChat = () => {
 
 
 @keyframes rgb {
-    0% { background-color: #ff0000; }   
-    14% { background-color: #ff7f00; } 
-    28% { background-color: #ffff00; }  
-    42% { background-color: #00ff00; }  
-    57% { background-color: #0000ff; } 
-    71% { background-color: #4b0082; }  
-    85% { background-color: #9400d3; }  
-    100% { background-color: #ff0000; } 
+    0% { background-color: rgb(255, 0, 0, 0.5); }   
+    14% { background-color: rgb(255, 127, 0, 0.5); } 
+    28% { background-color: rgb(255, 255, 0, 0.5); }  
+    42% { background-color: rgb(0, 255, 0, 0.5); }  
+    57% { background-color: rgb(0, 0, 255, 0.5); } 
+    71% { background-color: rgb(75, 0, 130, 0.5); }  
+    85% { background-color: rgb(143, 0, 255, 0.5); }  
+    100% { background-color: rgb(255, 0, 0, 0.5); } 
 }
 
 </style>
