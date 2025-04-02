@@ -27,6 +27,7 @@ declare module 'vue' {
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     Header: typeof import('./src/components/header/header.vue')['default']
     HomeArticleList: typeof import('./src/components/HomeArticleList/home-article-list.vue')['default']
+    HomeBtn: typeof import('./src/components/layout/header/widgets/home-btn/homeBtn.vue')['default']
     Layout: typeof import('./src/components/layout/index.vue')['default']
     Pagination: typeof import('./src/components/Pagination/pagination.vue')['default']
     RightSide: typeof import('./src/components/RightSide/right-side.vue')['default']

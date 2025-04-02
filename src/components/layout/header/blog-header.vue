@@ -5,6 +5,7 @@ import { debounce } from "@/utils/tool";
 
 import ThemeToggle from "./widgets/theme-toggle/toggle.vue";
 import Search from "./widgets/global-search/search.vue";
+import HomeBtn from "./widgets/home-btn/homeBtn.vue";
 import avartar from "@/assets/img/faye.png"
 
 const headerState = reactive({
@@ -54,6 +55,7 @@ onBeforeUnmount(() => {
 
             <div class="menu-left">
                 <el-avatar :src="avartar"> user </el-avatar>
+                <HomeBtn></HomeBtn>
             </div>
             <div class="menu-right">
                 <Search></Search>
@@ -105,4 +107,11 @@ onBeforeUnmount(() => {
         transform: translateY(-3.6rem);
     }
 }
+
+.menu-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 </style>
