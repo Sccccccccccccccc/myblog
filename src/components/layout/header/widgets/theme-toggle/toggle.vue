@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import { onMounted, ref, nextTick } from 'vue'
+
 import { Moon, Sunrise } from "@element-plus/icons-vue";
+import sunIcon from '@/assets/svg/pixelTheme/sunIcon.vue';
+import moonIcon from '@/assets/svg/pixelTheme/moonIcon.vue';
+
 import { storeToRefs } from "pinia";
 
 import { useThemeSwitchStore } from '@/store/themeSwitch'
@@ -101,6 +105,22 @@ const changeAnimation = (event: MouseEvent) => {
 </script>
 
 <template>
-    <el-switch v-model="currentTheme" size="default" :active-icon="Sunrise" inline-prompt :inactive-icon="Moon"
-        @click.stop="changeSwitch" />
+    <!-- TODO 样式切换优化 -->
+    <el-switch 
+        style="scale: 1.2;"
+        v-model="currentTheme" 
+        size="default" 
+        :active-icon="sunIcon" 
+        inline-prompt 
+        :inactive-icon="moonIcon"
+        @click.stop="changeSwitch" 
+    />
+
+    <!-- {{ currentTheme }}
+    <div @click.stop="changeSwitch" >
+        <sunIcon v-if="currentTheme" />
+        <moonIcon v-else />
+    </div> -->
+
+
 </template>

@@ -14,8 +14,6 @@ declare module 'vue' {
     BlogMain: typeof import('./src/components/layout/main/blog-main.vue')['default']
     Bot: typeof import('./src/components/AIBot/bot.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
-    ElButton: typeof import('element-plus/es')['ElButton']
-    ElCar: typeof import('element-plus/es')['ElCar']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElIcon: typeof import('element-plus/es')['ElIcon']
@@ -35,7 +33,6 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Search: typeof import('./src/components/layout/header/widgets/global-search/search.vue')['default']
-    ThemeToggle: typeof import('./src/components/layout/header/widgets/theme-toggle/index.vue')['default']
     Toggle: typeof import('./src/components/layout/header/widgets/theme-toggle/toggle.vue')['default']
     TypeWriter: typeof import('./src/components/TypeWriter/type-writer.vue')['default']
   }

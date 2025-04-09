@@ -66,6 +66,7 @@ onBeforeUnmount(() => {
         <div class="mobile_header">
             <div class="menu-left">
                 <el-avatar :src="avartar"> user </el-avatar>
+                <HomeBtn></HomeBtn>
             </div>
             <div class="menu-right">
                 <Search></Search>
