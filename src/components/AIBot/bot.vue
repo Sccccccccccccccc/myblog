@@ -25,10 +25,10 @@ const showBotChat = () => {
     // 显示聊天窗口
     show.value = true
     console.log('showBotChat')
-
+    let url = import.meta.env.VITE_APP_BASE_API + 'sse'
     const getRes = async () => {
         try {
-            const res = await fetch("http://localhost:3000/sse", {
+            const res = await fetch( url, {
                 method: "get",
                 signal: signal,
             });
