@@ -16,5 +16,9 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 2025-02-07
 - [-] 使用pinia管理登录用户信息
 
+2025-04-10
+- [-] 设置背景音乐 方案：网易云？QQ音乐？
+- [-] 搭建后台管理系统
+- [-] 实现类QQ空间花藤
 
 

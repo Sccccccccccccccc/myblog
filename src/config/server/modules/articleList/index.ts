@@ -2,7 +2,7 @@ import request from "../../../index";
 
 export const getArticleList = function (query?:any) {
     return request.get({
-        url: '/list',
+        url: '/article/article-list',
         params: query,
     })
   }
