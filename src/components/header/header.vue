@@ -8,6 +8,14 @@ import TypeWriter from "../TypeWriter/type-writer.vue";
 import { useRoute } from "vue-router";
 const route = useRoute();
 
+import { useHomeStore } from '@/store/home';
+const store = useHomeStore();
+const randomTitle = computed(() => store.randomTitle);
+const typeList = ref(["生活原本沉闷，但跑起来就会有风!"]);
+if(randomTitle) {
+  typeList.value = randomTitle.value.title_zh ? [randomTitle.value.title_zh] :  [randomTitle.value.title_en] ;
+}
+
 const showScrollBottom = ref(true);
 
 const scrollListener = debounce(() => {
@@ -36,7 +44,7 @@ const props = withDefaults(
   title: "title",
 })
 
-const typeList = ref(["生活原本沉闷，但跑起来就会有风!", "11555"]);
+// const typeList = ref(["生活原本沉闷，但跑起来就会有风!"]);
 
 gsap.registerPlugin(ScrollTrigger);
 

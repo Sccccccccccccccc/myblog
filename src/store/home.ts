@@ -1,14 +1,22 @@
 import { defineStore } from "pinia";
 import { session, local } from '@/utils/storage'
-import { getArticleList, getArticleById } from '@/config'
+import { getRandomTitle, getArticleList, getArticleById } from '@/config'
 
 interface IArticleList {
     total: number,
     list: any[]
 }
 
+interface IrandomTitle {
+    id?: number | string,
+    title_en: string,
+    title_zh: string,
+    usage_count?: number
+}
+
 export interface IHome {
     loading: boolean,
+    randomTitle: IrandomTitle,
     articleList: IArticleList,
     articleDetail: any
 }
@@ -16,6 +24,10 @@ export interface IHome {
 export const useHomeStore = defineStore('home', {
     state: (): IHome => ({
         loading: true,
+        randomTitle: { 
+          title_zh:'', 
+          title_en: ''
+        },
         articleList: {
           list: [],
           total: 0
@@ -59,6 +71,19 @@ export const useHomeStore = defineStore('home', {
         } catch (error) {
           console.log(error);
         }
+      },
+
+      // 获取随机标题
+      async getRandomTitle(){
+        try {
+          await getRandomTitle().then( res => {
+            console.log('获取随机标题', res);
+            this.randomTitle = res.data
+          })
+        } catch (error) {
+          console.log(error);
+        }
+        
       }
 
     }
