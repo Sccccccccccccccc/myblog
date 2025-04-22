@@ -2,24 +2,7 @@ import { defineStore } from "pinia";
 import { session, local } from '@/utils/storage'
 import { getRandomTitle, getArticleList, getArticleById } from '@/config'
 
-interface IArticleList {
-    total: number,
-    list: any[]
-}
-
-interface IrandomTitle {
-    id?: number | string,
-    title_en: string,
-    title_zh: string,
-    usage_count?: number
-}
-
-export interface IHome {
-    loading: boolean,
-    randomTitle: IrandomTitle,
-    articleList: IArticleList,
-    articleDetail: any
-}
+import type { IArticleData, IHome } from '@/types'
 
 export const useHomeStore = defineStore('home', {
     state: (): IHome => ({

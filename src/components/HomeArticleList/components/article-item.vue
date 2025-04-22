@@ -1,8 +1,17 @@
 <script setup lang="ts">
+
+interface ArticleData {
+    id: number | string;
+    article_title: string;
+    article_cover: string;
+    create_time: string;
+    update_time: string;
+}
+
 import { toRaw } from 'vue';
 const props = defineProps({
     articleData: {
-        type: Object,
+        type: Object as () => ArticleData,
         default: () => ({})
     },
     index: {

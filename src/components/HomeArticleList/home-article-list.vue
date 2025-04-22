@@ -47,14 +47,19 @@ const toArticleDetail = (item: any) => {
 <template>
     <el-row>
         <template v-if="!loading">
-            <el-col v-for=" (item, index) in articleList.list" :key="index" :style="{
+            <el-col v-for=" (item , index) in articleList" :key="index" :style="{
                 transform: `translateY(${translateY}px)`,
                 transition: `all ${translateY ? '0s' : '0.3s'}`
             }">
                 <el-card class="article-box my-2 first:mt-0">
                     <el-skeleton :loading="loading" style="height: 100%" animated>
                         <template #default>
-                            <ArticleItem @click="toArticleDetail(item)" :article-data="item" :key="item.id" :index="index" />
+                            <ArticleItem 
+                                @click="toArticleDetail(item)" 
+                                :article-data="item" 
+                                :key="item.id" 
+                                :index="Number(index)" 
+                            />
                         </template>
                     </el-skeleton>
                 </el-card>
