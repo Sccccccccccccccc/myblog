@@ -9,7 +9,7 @@ export const getArticleList = function (query?:any) {
 
 export const getArticleById = function (query?:any) {        
     return request.get({
-        url: '/article',
+        url: '/article/article-detail',
         params: query,
     })
 }
