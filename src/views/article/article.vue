@@ -26,6 +26,7 @@ mdState.text = articleDetail.value.article_content;
 
 onMounted(() => {
     articleDetail.value.update_time = new Date(articleDetail.value.update_time).toLocaleString()
+    window.scrollTo(0, 0)
 })
 
 function like() {

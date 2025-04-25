@@ -1,6 +1,8 @@
 <script lang="ts" setup>
-    import route from "@/router";
-    console.log("main?", route);
+    // import route from "@/router";
+    // console.log("main?", route);
+
+    import Drawer from '../widgets/drawer/drawer.vue';
     
 </script>
 
@@ -12,5 +14,8 @@
             </keep-alive>
             <component :is="Component" v-if="!$route.meta.keepAlive" :key="$route.fullPath"></component>
         </router-view>
+
+        <Drawer></Drawer>
+        
     </div>
 </template>

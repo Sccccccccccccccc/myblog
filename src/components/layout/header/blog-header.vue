@@ -6,6 +6,8 @@ import { debounce } from "@/utils/tool";
 import ThemeToggle from "./widgets/theme-toggle/toggle.vue";
 import Search from "./widgets/global-search/search.vue";
 import HomeBtn from "./widgets/home-btn/homeBtn.vue";
+import Experiment from './widgets/experiment/experiment.vue';
+import Preferences from './widgets/preferences/preferences.vue';
 import avartar from "@/assets/img/faye.png"
 
 const headerState = reactive({
@@ -32,8 +34,6 @@ const scroll = debounce(() => {
         headerState.headerClass = "hide-header";
     }
     headerState.startScrollTop = scrollTop;
-
-    // console.log("scrollTop", scrollTop, startScrollTop);
 }, 5);
 
 onMounted(() => {
@@ -51,14 +51,18 @@ onBeforeUnmount(() => {
     <div :class="['header_box', headerState.headerClass]" :style="{
         background: headerState.scrollTop < 50 ? 'transparent' : 'var(--header-bg)',
     }">
+        <!-- 菜单顶部 -->
         <div class="pc_header">
-
+            <!-- 左侧 -->
             <div class="menu-left">
                 <el-avatar :src="avartar"> user </el-avatar>
-                <HomeBtn></HomeBtn>
             </div>
+            <!-- 右侧 -->
             <div class="menu-right">
                 <Search></Search>
+                <HomeBtn></HomeBtn>
+                <Experiment></Experiment>
+                <Preferences></Preferences>
                 <ThemeToggle></ThemeToggle>
             </div>
 

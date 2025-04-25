@@ -11,7 +11,7 @@ import { useThemeSwitchStore } from '@/store/themeSwitch'
 import { local } from '@/utils/storage';
 
 const themeSwitchStore = useThemeSwitchStore()
-const { mainTheme } = storeToRefs(themeSwitchStore);
+const { mainTheme, theme } = storeToRefs(themeSwitchStore);
 const currentTheme = ref(undefined)
 
 onMounted(() => {
@@ -106,21 +106,19 @@ const changeAnimation = (event: MouseEvent) => {
 
 <template>
     <!-- TODO 样式切换优化 -->
-    <el-switch 
+    <!-- <el-switch 
         style="scale: 1.2;"
         v-model="currentTheme" 
-        size="default" 
+        size="default"  
         :active-icon="sunIcon" 
         inline-prompt 
         :inactive-icon="moonIcon"
         @click.stop="changeSwitch" 
-    />
-
-    <!-- {{ currentTheme }}
-    <div @click.stop="changeSwitch" >
-        <sunIcon v-if="currentTheme" />
+    /> -->
+    <div style="cursor: pointer;" @click.stop="changeSwitch" >
+        <sunIcon v-if="theme" />
         <moonIcon v-else />
-    </div> -->
+    </div>
 
 
 </template>

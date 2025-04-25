@@ -23,7 +23,7 @@ router.beforeEach((to, from, next) => {
             ]).finally(() => {
                 next()
             })
-        }else if( to.meta.title == '文章详情'){            
+        }else if( to.meta.title == '文章详情'){     
             getArticleById(to.query).then( (res) => {
                 next()
             })
