@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 
-
 // 这里使用了vueuse
 import { useDark, useToggle } from "@vueuse/core";
 import { local } from "@/utils/storage";
@@ -21,23 +20,24 @@ const toggle = useToggle(isDarkTheme);
 
 export const useThemeSwitchStore = defineStore("themeSwitchStore", {
     state: () => {
-        return {
-            theme: isDarkTheme.value,
-        }
+      return {
+        theme: isDarkTheme.value,
+      }
     },
     getters: {
-        // 获取当前整体主题 黑夜/白天
-        mainTheme() {
-          return isDarkTheme.value;
-        },
+      // 获取当前整体主题 黑夜/白天
+      mainTheme() {
+        return isDarkTheme.value;
       },
+
+    },
     actions: {
-        // 切换主题
-        switchMainTheme() {
-          toggle();
-          this.theme = isDarkTheme.value;
-            local.set("mainTheme", this.theme ? "dark" : "light");
-        },
+      // 切换主题
+      switchMainTheme() {
+        toggle();
+        this.theme = isDarkTheme.value;
+        local.set("mainTheme", this.theme ? "dark" : "light");
+      },
 
     },
 

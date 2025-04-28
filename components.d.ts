@@ -31,6 +31,7 @@ declare module 'vue' {
     Layout: typeof import('./src/components/layout/index.vue')['default']
     Option: typeof import('./src/components/layout/header/widgets/preferences/option.vue')['default']
     Pagination: typeof import('./src/components/Pagination/pagination.vue')['default']
+    PixelBorder: typeof import('./src/components/Border/pixelTheme/pixelBorder.vue')['default']
     Preferences: typeof import('./src/components/layout/header/widgets/preferences/preferences.vue')['default']
     RightSide: typeof import('./src/components/RightSide/right-side.vue')['default']
     RightSide_Skeleon: typeof import('./src/components/Skeleon/rightSide_Skeleon/index.vue')['default']

@@ -1,44 +1,65 @@
 <script setup>
-
-    import { ref } from 'vue'
     
-    // TODO 差一个存储抽屉状态的地方
-    const props = defineProps({
-        isShow: {
-            type: Boolean,
-            default: true
-        },
-        position: {
-            type: String,
-            default: 'right'
-        },
+    import { usePreferenceStore } from '@/store/preference'
+    const perferenceStore = usePreferenceStore()
+    const setShowDrawer = () => {
+        perferenceStore.isShowDrawer = false
+    }
 
-    })
+    import PixelBorder from '@/components/Border/pixelTheme/pixelBorder.vue'
 
 </script>
 
 
 <template>
 
-    <div class="drawer" v-if="isShow"
+    <div 
+        class="drawer" 
+        :style="{ transform: `translateX(${perferenceStore.isShowDrawer ? '-100%' : '0'})` }"
     >
-        手写抽屉
+
+        偏好设置
+        
+        <PixelBorder>
+            <div>
+                背景颜色
+            
+            </div>
+        </PixelBorder>
+
     </div>
 
-    <div class="mask"></div>
+    <div 
+        class="mask" 
+        @click="setShowDrawer(false)" 
+        v-if="perferenceStore.isShowDrawer"
+    >
+    </div>
 
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
+    // 解决滚动穿透
+    // https://zhuanlan.zhihu.com/p/633096221
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: auto;
+        box-sizing: border-box;
+    }
+
     
     .drawer {
         position: fixed;
         top: 0;
-        right: -20%;
-        width: 20%;
+        right: -24%;
+        width: 24%;
         height: 100%;
-        background-color: #fff;
-        z-index: 999;
+        background-color: var(--global-gradient);
+        z-index: 9999;
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
     }
@@ -50,7 +71,8 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
-        z-index: 998;
+        z-index: 9998;
+        backdrop-filter: blur(2px); /* 添加毛玻璃效果 */
     }
 
 </style>

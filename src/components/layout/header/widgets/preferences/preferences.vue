@@ -1,21 +1,22 @@
 <script lang="ts" setup>
 import Option from "@/assets/svg/pixelTheme/option.vue"; 
-import { ref } from "vue";
 
-const drawer = ref(false);
+import { usePreferenceStore } from '@/store/preference'
+const perferenceStore = usePreferenceStore()
+
+const setShowDrawer = () => {
+    perferenceStore.isShowDrawer = true
+}
 
 </script>
 
-
 <template>
-    <div @click="drawer = true" style="cursor: pointer;" class="theme">
+    <div @click="setShowDrawer()" 
+        style="cursor: pointer;" 
+        class="theme"
+    >
         <Option></Option>
     </div>
-
-    <el-drawer class="drawer" v-model="drawer" title="I am the title" :with-header="false">
-        <span>Hi there!</span>
-    </el-drawer>
-
 </template>
 
 <style lang="scss" scoped>
